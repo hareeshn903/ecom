@@ -42,6 +42,9 @@ node {
         echo "Running unit tests"
         sh 'mvn test || true'
     }
+    stage('Test Report') {
+        junit 'target/surefire-reports/*.xml'
+    }
 
     /* ----------------------------------------
      * Stage 5: Package
