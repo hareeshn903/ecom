@@ -11,7 +11,8 @@ node {
      * ---------------------------------------- */
     stage('Checkout Source') {
         echo "Checking out source code..."
-        git url: 'https://github.com/hareeshn903/ecom.git'
+        git url: 'https://github.com/hareeshn903/ecom.git',
+            branch: 'main'
     }
 
     /* ----------------------------------------
