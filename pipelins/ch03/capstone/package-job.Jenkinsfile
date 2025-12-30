@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/hareeshn903/ecom.git'
+                git 'https://github.com/hareeshn903/ecom.git',
+                branch 'main'
             }
         }
 
