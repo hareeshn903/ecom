@@ -42,8 +42,8 @@ pipeline {
                         ]
                     )
                     echo "Selected environment: ${envChoice}"
-                    echo "Version: ${userInput['VERSION']}"
-                    echo "Hotfix: ${userInput['HOTFIX']}"
+                    echo "Version: ${envChoice['VERSION']}"
+                    echo "Hotfix: ${envChoice['HOTFIX']}"
                 }
                 //input message: 'Approve packaging stage?', ok: 'Approve'
 
