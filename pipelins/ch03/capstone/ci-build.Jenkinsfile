@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    options {
+        quietPeriod(5)
+    }
     triggers {
         //githubPush()
         pollSCM('H/2 * * * *')
@@ -29,7 +31,22 @@ pipeline {
 
         stage('Approval Gate') {
             steps {
-                input message: 'Approve packaging stage?', ok: 'Approve'
+                script {
+                    timeout(time: 10, unit: 'MINUTES') {
+                    def envChoice = input(
+                        id: 'envChoice', message: 'Approve to proceed to Packaging?',
+                        parameters: [
+                            choice(name: 'ENV', choices: ['PROD', 'QA', 'DEV'], description: 'Select environment to deploy'),
+                            booleanParam(name: 'HOTFIX', defaultValue: false),
+                            string(name: 'VERSION', defaultValue: '1.0.0')
+                        ]
+                    )
+                    echo "Selected environment: ${envChoice}"
+                    echo "Version: ${userInput['VERSION']}"
+                    echo "Hotfix: ${userInput['HOTFIX']}"
+                }
+                //input message: 'Approve packaging stage?', ok: 'Approve'
+                
             }
         }
 
