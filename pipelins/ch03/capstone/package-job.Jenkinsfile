@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/hareeshn903/ecom.git'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Artifacts') {
+            steps {
+                sh 'ls -l target'
+            }
+        }
+    }
+}
