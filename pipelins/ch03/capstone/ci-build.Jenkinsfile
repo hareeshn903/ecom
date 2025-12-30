@@ -10,6 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git 'https://github.com/hareeshn903/ecom.git'
+                branch 'main'
             }
         }
 
