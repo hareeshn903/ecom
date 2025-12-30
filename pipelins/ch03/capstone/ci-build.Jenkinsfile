@@ -46,8 +46,9 @@ pipeline {
                     echo "Hotfix: ${userInput['HOTFIX']}"
                 }
                 //input message: 'Approve packaging stage?', ok: 'Approve'
-                
+
             }
+        }
         }
 
         stage('Trigger Packaging Job') {
