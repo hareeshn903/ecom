@@ -3,7 +3,7 @@ pipeline {
 
     triggers {
         githubPush()
-        cron('H 1 * * *')   // nightly build at ~1 AM m
+        cron('H 1 * * *')   // nightly build at ~1 AM mb
     }
 
     stages {
