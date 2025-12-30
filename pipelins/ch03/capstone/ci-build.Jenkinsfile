@@ -3,6 +3,7 @@ pipeline {
 
     triggers {
         githubPush()
+        pollSCM('H/2 * * * *')
         cron('H 1 * * *')   // nightly build at ~1 AM mb
     }
 
